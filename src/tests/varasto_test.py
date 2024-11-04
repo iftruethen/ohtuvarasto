@@ -10,6 +10,7 @@ class TestVarasto(unittest.TestCase):
 
     def test_testaa_tuloste(self):
         self.assertEqual(str(self.varasto), "saldo = 0, vielä tilaa 10")
+        #adding this to test conflict
 
     def test_ota_negatiivinen_maara(self):
         self.varasto.ota_varastosta(-10)
