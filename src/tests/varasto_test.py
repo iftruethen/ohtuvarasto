@@ -9,7 +9,7 @@ class TestVarasto(unittest.TestCase):
         self.varasto3 = Varasto(10,20)
 
     def test_testaa_tuloste(self):
-        self.assertEqual(str(self.varasto), "saldo = 0, vielä tilaa 10")
+        self.assertEqual(str(self.varasto)), "saldo = 0, vielä tilaa 10")
 
     def test_ota_negatiivinen_maara(self):
         self.varasto.ota_varastosta(-10)
