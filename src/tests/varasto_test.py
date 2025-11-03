@@ -12,7 +12,7 @@ class TestVarasto(unittest.TestCase):
         self.assertEqual(str(self.varasto), "saldo = 0, vielä tilaa 10")
 
     def test_ota_ylimaarin(self):
-        varasto.ota_varastosta((self.varasto.saldo+1)**2+1)
+        self.varasto.ota_varastosta((self.varasto.saldo+1)**2+1)
 
     def test_ota_negatiivinen_maara(self):
         self.varasto.ota_varastosta(-10)
