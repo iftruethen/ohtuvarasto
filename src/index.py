@@ -1,3 +1,4 @@
+# pylint: disable=too-many-statements
 from varasto import Varasto
 
 
