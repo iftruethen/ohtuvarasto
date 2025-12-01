@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Edit {{ name }}{% endblock %}
+
+{% block content %}
+<h1>Edit Warehouse: {{ name }}</h1>
+
+<form action="{{ url_for('edit_warehouse', warehouse_id=warehouse_id) }}" method="post">
+    <p>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" value="{{ name }}" required>
+    </p>
+    <p>
+        <label for="capacity">Capacity:</label><br>
+        <input type="number" id="capacity" name="capacity" step="1" min="0" value="{{ varasto.tilavuus }}" required>
+    </p>
+    <p>
+        <label for="balance">Current Balance:</label><br>
+        <input type="number" id="balance" name="balance" step="1" min="0" value="{{ varasto.saldo }}" required>
+    </p>
+    <button type="submit">Save Changes</button>
+</form>
+
+<p><a href="{{ url_for('index') }}">Back to list</a> | <a href="{{ url_for('warehouse_details', warehouse_id=warehouse_id) }}">View Details</a></p>
+{% endblock %}

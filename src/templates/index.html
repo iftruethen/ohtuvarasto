@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Ohtuvarasto - Warehouses{% endblock %}
+
+{% block content %}
+<h1>Warehouses</h1>
+
+{% if warehouses %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Capacity</th>
+                <th>Balance</th>
+                <th>Free Space</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for id, data in warehouses.items() %}
+            <tr>
+                <td><a href="{{ url_for('warehouse_details', warehouse_id=id) }}">{{ data.name }}</a></td>
+                <td>{{ data.varasto.tilavuus }}</td>
+                <td>{{ data.varasto.saldo }}</td>
+                <td>{{ data.varasto.paljonko_mahtuu() }}</td>
+                <td>
+                    <a href="{{ url_for('edit_warehouse', warehouse_id=id) }}">Edit</a> |
+                    <form action="{{ url_for('delete_warehouse', warehouse_id=id) }}" method="post" style="display:inline;">
+                        <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No warehouses yet. <a href="{{ url_for('create_warehouse') }}">Create one!</a></p>
+{% endif %}
+{% endblock %}
