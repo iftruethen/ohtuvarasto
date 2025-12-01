@@ -12,11 +12,11 @@
     </p>
     <p>
         <label for="capacity">Capacity:</label><br>
-        <input type="number" id="capacity" name="capacity" step="0.01" min="0" value="{{ varasto.tilavuus }}" required>
+        <input type="number" id="capacity" name="capacity" step="1" min="0" value="{{ varasto.tilavuus }}" required>
     </p>
     <p>
         <label for="balance">Current Balance:</label><br>
-        <input type="number" id="balance" name="balance" step="0.01" min="0" value="{{ varasto.saldo }}" required>
+        <input type="number" id="balance" name="balance" step="1" min="0" value="{{ varasto.saldo }}" required>
     </p>
     <button type="submit">Save Changes</button>
 </form>
